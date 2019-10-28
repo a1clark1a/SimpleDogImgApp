@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>DOG IMG APP</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale= 1">
+        <meta name="description" content="A simple click and you get an image of a dog">
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header>
+            <h1>DOG IMAGE APP</h1>
+            <h2>Practicing API request</h2>
+        </header>
+
+        <main role="main">
+            <section class="interface_one">
+                <form class="first_form">
+                    <fieldset>
+                        <legend>Choose from 1-50 images to show</legend>
+                        <label for="quantity">Number of Images 
+                        <input class="num_of_img" name="quantity" id="quantity" type="number" min=1 max=50 value=3 required></label>
+                        <div><button class="dog_btn" type="button">Get Dog Image</button></div>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section class="interface_two">
+                <form class="second_form">
+                    <fieldset>
+                        <legend>Generate a random dog image by breed</legend>
+                        <label for="breed">Input a breed type
+                        <input class="breed_name" name="breed"  id="breed" type="text" placeholder="ex hound" size="5" required></label>
+                        <div><button class="rand_dog" type="button" form="second_form">Generate a random dog image</button></div>
+                    </fieldset>
+                </form>
+            </section>
+            <section class="display" hidden>
+                <h2>Here is your image</h2>
+                <div class="img_container">
+                    <img class="dog_image" alt="placeholder">
+                </div>
+            </section>
+        </main>
+        <footer>
+            <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+            <script src="script.js" type="text/javascript"></script>
+        </footer>
+    </body>
+</html>

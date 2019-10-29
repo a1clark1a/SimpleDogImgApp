@@ -63,24 +63,29 @@ function getSingleRandomImg(breed)
         });
 }
 
+function clearDisplay()
+{
+    $(".img_container").empty();
+    $('.error_msg').empty();
+}
+
 function displayError(err)
 {
-    $('.error_msg').empty();
+    clearDisplay();
     $('.error_msg').append(`<h2 class="error_txt">Something went wrong! ${err.message} </h2>`);
     $('.error_msg').removeAttr('hidden');
 }
 
-
 function displayImage(jsonObj)
 {
-    $(".img_container").empty();
+    clearDisplay();
     $('.img_container').append(`<img src="${jsonObj.message}" class="dog_image" alt="image of a dog">`);
     $('.display').removeAttr('hidden');
 }
 
 function displayMultipleImage(jsonObj)
 {
-    $(".img_container").empty();
+    clearDisplay();
     jsonObj.message.forEach(function(elem){
         $('.img_container').append(`<img src="${elem}" class="dog_image multi" alt="image of dog">`);
        console.log(elem);

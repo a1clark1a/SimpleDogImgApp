@@ -3,9 +3,9 @@ function checkInput()
 {
     $('.dog_btn').on('click',function(e)
     {
-        if($('.num_of_img').val() <= 0)
+        if($('.num_of_img').val() <= 0 || $('.num_of_img').val() > 50)
         {
-            alert("cannot be lower than 1");
+            alert("Number must from 1 - 50");
         }
         else
         {
@@ -40,15 +40,33 @@ function getMultipleDogImg(num)
             console.log(ResponseJson)
             displayMultipleImage(ResponseJson);
         })
-        .catch(error => alert(error));
+        .catch(error => {
+            console.log('trigger');
+            displayError(error);
+        });
 }
 
 function getSingleRandomImg(breed)
 {
     fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
-        .then(Response => Response.json())
+        .then(Response => {
+            if(Response.ok)
+            {
+                return Response.json();
+            }
+            throw new Error(Response.statusText);
+        })   
         .then(ResponseJson => displayImage(ResponseJson))
-        .catch(error => alert(error));
+        .catch(error => {
+            console.log('trigger');
+            displayError(error);
+        });
+}
+
+function displayError(err)
+{
+    $('.error_msg').append(`<h2 class="error_txt">Something went wrong! ${err.message} </h2>`);
+    $('.error_msg').removeAttr('hidden');
 }
 
 

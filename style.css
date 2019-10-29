@@ -36,3 +36,12 @@ fieldset{
 legend, button, input {
     margin: 10px;
 }
+
+.display{
+    margin-top: 20px;
+}
+
+.error_txt {
+    font-size: 30px;
+    color: red;
+}

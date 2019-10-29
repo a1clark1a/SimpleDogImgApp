@@ -65,6 +65,7 @@ function getSingleRandomImg(breed)
 
 function displayError(err)
 {
+    $('.error_msg').empty();
     $('.error_msg').append(`<h2 class="error_txt">Something went wrong! ${err.message} </h2>`);
     $('.error_msg').removeAttr('hidden');
 }
